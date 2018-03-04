@@ -59,5 +59,4 @@ Filenames denoted with an asterisk `*` are auto generated and should not be modi
 1. Edit `package.json` project description, authors, dependencies, and possibly license.
 1. Do initial build: `make`
 1. In `index.html` edit title.
-1. Replace this README file with documentation for your new project! BITCH!
-1
+1. Replace this README file with documentation for your new project!

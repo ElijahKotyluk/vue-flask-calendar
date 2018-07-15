@@ -1,11 +1,11 @@
-# eli-vue-scaffold
+# vue-moment-calendar
 
-This is a basic project skeleton. This will make projects easier for the initial start giving me a basic outline to follow. Reusing this skeleton through multiple projects will save time by already having all of your basic files created to begin a project.
+This will start out as a basic calendar application that will display current month, as well as past and future. It will allow user input for scheduling meetings or appointments with reminders that can be created prior to that obligation. This project is mainly for my want to further my knowledge of Vue.js and Moment.js and hone those skills.
 
 ## file structure
 
 ```
-eli-vue-scaffold/
+vue-moment-calendar/
   ├── *node_modules/
   ├── src/
   |   ├── js/
@@ -54,9 +54,4 @@ Filenames denoted with an asterisk `*` are auto generated and should not be modi
 
 ## getting started
 
-1. Check out this repo: `git clone https://github.com/elijahkotyluk/eli-vue-scaffold.git`
-1. In Atom search the whole project for the string `${project-name}` and replace it with desired project name.
-1. Edit `package.json` project description, authors, dependencies, and possibly license.
-1. Do initial build: `make`
-1. In `index.html` edit title.
-1. Replace this README file with documentation for your new project!
+1. Check out this repo: `git clone https://github.com/ElijahKotyluk/Vue-Moment-Calendar`

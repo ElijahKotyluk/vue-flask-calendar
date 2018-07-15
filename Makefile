@@ -1,4 +1,4 @@
-# ${project-name} Makefile
+# vue-moment-calendar Makefile
 # author: Eli Kotyluk <elijah@elijahkotyluk.com>
 # copyright: Elijah Kotyluk 2017
 

@@ -1,7 +1,7 @@
 {
-  "name": "${project-name}",
+  "name": "vue-moment-calendar",
   "version": "0.0.1",
-  "description": "My project description",
+  "description": "Creating a calendar application with Vue framework and Moment library.",
   "license": "private",
   "private": true,
   "authors":[
@@ -12,6 +12,7 @@
     }
   ],
   "dependencies": {
+    "moment": "^2.22.2",
     "vue": "^2.4.2"
   },
   "devDependencies": {

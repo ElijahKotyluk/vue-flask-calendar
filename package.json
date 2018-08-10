@@ -4,7 +4,7 @@
   "description": "Creating a calendar application with Vue framework and Moment library.",
   "license": "private",
   "private": true,
-  "authors":[
+  "authors": [
     {
       "name": "Eli Kotyluk",
       "email": "elijah@elijahkotyluk.com",
@@ -13,6 +13,7 @@
   ],
   "dependencies": {
     "moment": "^2.22.2",
+    "moment-timezone": "^0.5.21",
     "vue": "^2.4.2"
   },
   "devDependencies": {

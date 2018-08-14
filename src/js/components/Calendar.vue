@@ -106,4 +106,22 @@ import CalendarDays from './CalendarDays.vue';
 </script>
 
 
-<style lang="scss"></style>
+<style lang="scss">
+
+#calendar {
+  background-color: rgba(150, 150, 150, 1);
+
+  .calendar-week {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+
+    .day {
+      overflow: hidden;
+      height: 100px;
+      user-select: none;
+      cursor: default;
+    }
+  }
+}
+</style>

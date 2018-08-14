@@ -33,10 +33,11 @@ import CurrentMonth from './CurrentMonth.vue';
   export default {
     name: 'Calendar',
     computed: {
+      /* Current Month */
       month() {
         return this.$store.state.currentMonth;
       },
-
+      /* Current Year */
       year() {
         return this.$store.state.currentYear;
       },
@@ -44,7 +45,7 @@ import CurrentMonth from './CurrentMonth.vue';
       // Generate days in current month.
       days() {
 
-        // Empty array to push days to.
+        /* Empty array to push days to. */
         let days = [];
         let currentDay = this.$moment(`${this.year}-${this.month}-1`, 'YYYY-M-D');
 

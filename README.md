@@ -10,7 +10,10 @@ vue-moment-calendar/
   ├── src/
   |   ├── js/
   |   |   └── components/
-  |   |   |   └── App.vue        
+  |   |   |   └── App.vue
+  |   |   |   └── Calendar.vue
+  |   |   |   └── CalendarDays.vue
+  |   |   |   └── CurrentMonth.vue        
   |   |   └── index.js
   |   └── styles
   |       ├── _reset.scss
@@ -37,6 +40,9 @@ Filenames denoted with an asterisk `*` are auto generated and should not be modi
   - `js/` : Javascript folder.
     - `components/` : Vue components.
       - `App.vue` : Main application component.
+      - `Calendar.vue` : Calendar component.
+      - `CalendarDays.vue` : Component for rendering days in the calendar.
+      - `CurrentMonth.vue` : Displays current month/selected month in header.
     - `index.js` : Main application entry point for Javascript.
   - `styles/` : Styles folder.
     - `_reset.scss` : Global style reset partial.

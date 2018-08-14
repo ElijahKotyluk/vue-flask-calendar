@@ -25,7 +25,7 @@ import CalendarDays from './CalendarDays.vue';
     name: 'Calendar',
     data () {
       return {
-        month: 9,
+        month: 8,
         year: 2018
       };
     },
@@ -108,8 +108,10 @@ import CalendarDays from './CalendarDays.vue';
 
 <style lang="scss">
 $border-color: rgba(0, 0, 0, 1);
-
 $day-border: 1px solid $border-color;
+$padding-days: rgba(140, 145, 140, 1);
+$today: rgba(218, 193, 231, 1);
+$active: rgba(222, 6, 6, 1);
 
 @mixin calendar-row() {
   display: flex;
@@ -122,13 +124,15 @@ $day-border: 1px solid $border-color;
   padding: 0.5rem;
 }
 
+/* Calendar */
 #calendar {
   background-color: rgba(150, 150, 150, 1);
 
+/* Week in Calendar */
   .calendar-week {
     @include calendar-row();
-  }
 
+/* Day in Calendar */
     .day {
       @include calendar-cell();
       overflow: hidden;
@@ -138,9 +142,36 @@ $day-border: 1px solid $border-color;
       border-left: $day-border;
       border-top: $day-border;
 
+/* Last day in each week */
       &:last-child {
         border-right: $day-border;
       }
+
+/* Past days */
+      &.past {
+        opacity: 0.6;
+      }
+
+/* Padding days for previous and next month */
+      &.not-current-month {
+        color: $padding-days;
+      }
+
+/* Current Day */
+      &.today {
+        background-color: $today;
+      }
+
+      &.active {
+        background-color: $today;
+      }
+    }
+
+    &:last-child {
+      .day {
+        border-bottom: $day-border;
+      }
     }
   }
+}
 </style>

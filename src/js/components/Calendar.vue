@@ -107,21 +107,40 @@ import CalendarDays from './CalendarDays.vue';
 
 
 <style lang="scss">
+$border-color: rgba(0, 0, 0, 1);
+
+$day-border: 1px solid $border-color;
+
+@mixin calendar-row() {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+@mixin calendar-cell() {
+  width: 100%;
+  padding: 0.5rem;
+}
 
 #calendar {
   background-color: rgba(150, 150, 150, 1);
 
   .calendar-week {
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: row;
+    @include calendar-row();
+  }
 
     .day {
+      @include calendar-cell();
       overflow: hidden;
       height: 100px;
       user-select: none;
       cursor: default;
+      border-left: $day-border;
+      border-top: $day-border;
+
+      &:last-child {
+        border-right: $day-border;
+      }
     }
   }
-}
 </style>

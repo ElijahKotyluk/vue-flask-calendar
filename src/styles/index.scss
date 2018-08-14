@@ -1,8 +1,2 @@
 @import "reset";
 @import "variables";
-
-@mixin calendar-row {
-  display: flex;
-  justify-content: flex-start;
-  width: 100%;
-}

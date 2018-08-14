@@ -1,5 +1,13 @@
 <template>
   <div>
+    <div id="header">
+      <div>
+        <h1>Vue Moment Calendar</h1>
+      </div>
+      <div>
+        <current-month></current-month>
+      </div>
+    </div>
     <div id="days-bar">
       <div>Mon</div>
       <div>Tue</div>
@@ -20,16 +28,18 @@
 
 <script>
 import CalendarDays from './CalendarDays.vue';
+import CurrentMonth from './CurrentMonth.vue';
 
   export default {
     name: 'Calendar',
-    data () {
-      return {
-        month: 8,
-        year: 2018
-      };
-    },
     computed: {
+      month() {
+        return this.$store.state.currentMonth;
+      },
+
+      year() {
+        return this.$store.state.currentYear;
+      },
 
       // Generate days in current month.
       days() {
@@ -100,7 +110,8 @@ import CalendarDays from './CalendarDays.vue';
       }
     },
     components: {
-      CalendarDays
+      CalendarDays,
+      CurrentMonth
     }
   }
 </script>
@@ -122,6 +133,13 @@ $active: rgba(222, 6, 6, 1);
 @mixin calendar-cell() {
   width: 100%;
   padding: 0.5rem;
+}
+
+#days-bar {
+  @include calendar-row;
+  div {
+    @include calendar-cell;
+  }
 }
 
 /* Calendar */

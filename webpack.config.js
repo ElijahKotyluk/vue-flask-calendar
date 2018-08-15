@@ -3,12 +3,12 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   entry: [
-    './src/js/index.js',
-    './src/styles/index.scss'
+    './src/js/main.js',
+    './src/styles/main.scss'
   ],
   output: {
     path: __dirname,
-    filename: 'index.bundle.js'
+    filename: 'main.bundle.js'
   },
   module: {
     rules: [
@@ -36,7 +36,7 @@ module.exports = {
   },
   plugins: [
   	new ExtractTextPlugin({
-      filename: 'index.bundle.css',
+      filename: 'main.bundle.css',
       allChunks: true
     })
   ]

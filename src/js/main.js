@@ -21,7 +21,7 @@ var app = new Vue({
   el: '#app',
   store: {
     state: {
-      currentYear: 2018,
+      currentYear: moment().format('YYYY'),
       currentMonth: 8
     }
   },

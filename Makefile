@@ -12,7 +12,7 @@ PKG_DIR := $(THIS_DIR)/node_modules
 YARN := $(shell command -v yarn 2> /dev/null)
 WEBPACK := $(PKG_DIR)/.bin/webpack
 
-TARGETS := $(THIS_DIR)/index.bundle.*
+TARGETS := $(THIS_DIR)/main.bundle.*
 
 .PHONY: all build clean distclean watch
 

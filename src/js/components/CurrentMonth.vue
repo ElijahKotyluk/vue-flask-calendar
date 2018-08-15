@@ -1,11 +1,23 @@
 <template>
-  <div>{{ formattedDate }}</div>
+  <div class="month-selector">
+    <div>{{ formattedDate }}</div>
+    <button @click="decrement">-</button>
+    <button @click="increment">+</button>
+</div>
 </template>
 
 
 <script>
 export default {
   name: 'CurrentMonth',
+  methods: {
+    decrement () {
+      console.log('Decrement');
+    },
+    increment () {
+      console.log('Increment');
+    }
+  },
   computed: {
     /* Format date for CurrentMonth component */
     formattedDate() {

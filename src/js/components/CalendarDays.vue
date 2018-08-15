@@ -14,6 +14,7 @@ export default {
       return {
         day: true,
         today,
+        /* Days that have occured prior to today */
         past: this.day.isSameOrBefore(this.$moment(), 'day') && !today
       };
     }

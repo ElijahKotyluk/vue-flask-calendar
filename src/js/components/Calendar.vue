@@ -121,7 +121,7 @@ import CurrentMonth from './CurrentMonth.vue';
 <style lang="scss">
 $border-color: rgba(0, 0, 0, 1);
 $day-border: 1px solid $border-color;
-$padding-days: rgba(140, 145, 140, 1);
+$padding-days: rgba(172, 252, 172, 1);
 $today: rgba(218, 193, 231, 1);
 $active: rgba(222, 6, 6, 1);
 
@@ -169,12 +169,12 @@ $active: rgba(222, 6, 6, 1);
 
 /* Past days */
       &.past {
-        opacity: 0.6;
+        opacity: 0.3;
       }
 
 /* Padding days for previous and next month */
       &.not-current-month {
-        color: $padding-days;
+        background-color: $padding-days;
       }
 
 /* Current day */

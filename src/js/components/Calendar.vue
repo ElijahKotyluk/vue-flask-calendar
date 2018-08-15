@@ -136,6 +136,7 @@ $active: rgba(222, 6, 6, 1);
   padding: 0.5rem;
 }
 
+/* List of days above calendar. */
 #days-bar {
   @include calendar-row;
   div {
@@ -176,16 +177,16 @@ $active: rgba(222, 6, 6, 1);
         color: $padding-days;
       }
 
-/* Current Day */
+/* Current day */
       &.today {
         background-color: $today;
       }
-
+/* Active selected day. */
       &.active {
         background-color: $today;
       }
     }
-
+/* Border for last week row. */
     &:last-child {
       .day {
         border-bottom: $day-border;

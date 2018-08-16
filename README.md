@@ -15,6 +15,8 @@ vue-moment-calendar/
   |   |   |   └── CalendarDays.vue
   |   |   |   └── CurrentMonth.vue        
   |   |   └── main.js
+  |   ├── store/
+  |   |    └── index.js
   |   └── styles
   |       ├── _reset.scss
   |       ├── _variables.scss
@@ -44,6 +46,8 @@ Filenames denoted with an asterisk `*` are auto generated and should not be modi
       - `CalendarDays.vue` : Component for rendering days in the calendar.
       - `CurrentMonth.vue` : Displays current month/selected month in header.
     - `main.js` : Main application entry point for Javascript.
+  - `store/` : Vuex data state store.
+    - `index.js` : Entrypoint for Vuex store.
   - `styles/` : Styles folder.
     - `_reset.scss` : Global style reset partial.
     - `_variables.scss` : SCSS variables partial.

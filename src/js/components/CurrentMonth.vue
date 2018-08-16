@@ -14,17 +14,24 @@ export default {
     decrement () {
       console.log('Decrement');
       // If month is January set month to December and decrement year,
-      // otherwise decrement as normal.
+      // otherwise decrement month as normal.
       if (this.month === 1) {
         this.$store.commit('setCurrentMonth', 12);
         this.$store.commit('setCurrentYear', this.year - 1);
       } else {
-              this.$store.commit('setCurrentMonth', this.month - 1);
+        this.$store.commit('setCurrentMonth', this.month - 1);
       }
     },
     increment () {
       console.log('Increment');
-      this.$store.commit('setCurrentMonth', this.month + 1);
+      // If month is December increment year and month,
+      // otherwise increment month as normal.
+      if (this.month === 12) {
+        this.$store.commit('setCurrentMonth', 1);
+        this.$store.commit('setCurrentYear', this.year + 1);
+      } else {
+        this.$store.commit('setCurrentMonth', this.month + 1);
+      }
     }
   },
   computed: {

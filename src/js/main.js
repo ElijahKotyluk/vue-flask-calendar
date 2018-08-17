@@ -1,8 +1,6 @@
 import Vue from 'vue';
 import App from './components/App.vue';
 
-import store from './../store';
-
 import Vuex from 'vuex';
 Vue.use(Vuex);
 
@@ -16,12 +14,17 @@ Object.defineProperty(Vue.prototype, '$moment', {
   }
 });
 
+import store from './../store';
+
 
 var app = new Vue({
   el: '#app',
   data: {
     moment
   },
-  store,
-  render: h => h(App)
+  components: {
+    App
+  },
+  render: h => h(App),
+  store
 });

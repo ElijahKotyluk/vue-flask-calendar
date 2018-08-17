@@ -12,7 +12,6 @@ export default {
   name: 'CurrentMonth',
   methods: {
     decrement () {
-      console.log('Decrement');
       // If month is January set month to December and decrement year,
       // otherwise decrement month as normal.
       if (this.month === 1) {
@@ -23,7 +22,6 @@ export default {
       }
     },
     increment () {
-      console.log('Increment');
       // If month is December increment year and month,
       // otherwise increment month as normal.
       if (this.month === 12) {

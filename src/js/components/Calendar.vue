@@ -22,6 +22,7 @@
           <calendar-days v-for="day in week" :day="day"></calendar-days>
       </div>
     </div>
+    <event-form></event-form>
   </div>
 </template>
 
@@ -29,6 +30,8 @@
 <script>
 import CalendarDays from './CalendarDays.vue';
 import CurrentMonth from './CurrentMonth.vue';
+import EventForm from './EventForm.vue';
+
 
   export default {
     name: 'Calendar',
@@ -54,37 +57,40 @@ import CurrentMonth from './CurrentMonth.vue';
           days.push(currentDay);
           // Instance of moment that increments currentDay until all days in the current month are pushed.
           currentDay = this.$moment(currentDay).add(1, 'days');
-        } while ((currentDay.month() + 1) === this.month);
+        } while (currentDay.month() + 1 === this.month);
 
 
         // Add padding days from the end of the previous month.
         // Reset currentDay value to first day of the month.
         currentDay = this.$moment(days[0]);
 
+        const SUNDAY = 0;
+        const MONDAY = 1;
+
         // If statement to correctly render padding days for the month of May.
-        if (currentDay.day() !== 1) {
+        if (currentDay.day() !== MONDAY) {
           // Unshift currentDay to days array while currentDay is not Monday.
           do {
             // Instance of moment that decrements currentDay by 1 day.
             currentDay = this.$moment(currentDay).subtract(1, 'days');
             days.unshift(currentDay);
             // 1 is Monday in the moment library.
-          } while (currentDay.day() !== 1);
+          } while (currentDay.day() !== MONDAY);
         }
 
 
         // Add padding days from the beginning of the following month.
         // Reset currentDay value to last day of the current month.
-        currentDay = this.$moment(days.length - 1);
+        currentDay = this.$moment(days[days.length - 1]);
 
         // If statement to correctly render padding days for the month of May.
-        if (currentDay.day() !== 0) {
+        if (currentDay.day() !== SUNDAY) {
           // Push currentDay to days array while currentDay is not Sunday.
           do {
             currentDay = this.$moment(currentDay).add(1, 'days');
             days.push(currentDay);
           // 0 is Sunday in the moment library.
-          } while (currentDay.day() !== 0);
+        } while (currentDay.day() !== SUNDAY);
       }
 
         return days;
@@ -112,19 +118,22 @@ import CurrentMonth from './CurrentMonth.vue';
     },
     components: {
       CalendarDays,
-      CurrentMonth
+      CurrentMonth,
+      EventForm
     }
   }
 </script>
 
 
 <style lang="scss">
+/* Variable styles */
 $border-color: rgba(0, 0, 0, 1);
 $day-border: 1px solid $border-color;
 $padding-days: rgba(172, 252, 172, 1);
 $today: rgba(218, 193, 231, 1);
 $active: rgba(222, 6, 6, 1);
 
+/* Mixins */
 @mixin calendar-row() {
   display: flex;
   justify-content: flex-start;
@@ -134,6 +143,41 @@ $active: rgba(222, 6, 6, 1);
 @mixin calendar-cell() {
   width: 100%;
   padding: 0.5rem;
+}
+
+/* Header */
+#header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  div:first-child {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 1rem 0;
+  }
+
+  div:last-child {
+    button {
+      font-size: 1rem;
+      padding: 0;
+      width: 20px;
+      background-color: rgba(255, 255, 255, 1);
+      user-select: none;
+      border: 1px solid rgba(110, 120, 110, 1);
+      border-radius: 2px;
+      margin-left: 0.25rem;
+      &:focus {
+        outline: none;
+      }
+      &:hover {
+        color: rgba(27, 166, 235, 1);
+        box-shadow: 0 2px 2px rgba(110, 120, 110, 1);
+      }
+    }
+  }
 }
 
 /* List of days above calendar. */
@@ -169,7 +213,7 @@ $active: rgba(222, 6, 6, 1);
 
 /* Past days */
       &.past {
-        opacity: 0.3;
+        opacity: 0.6;
       }
 
 /* Padding days for previous and next month */
@@ -179,7 +223,7 @@ $active: rgba(222, 6, 6, 1);
 
 /* Current day */
       &.today {
-        background-color: $today;
+        background-color: rgba(245, 97, 97, 1);
       }
 /* Active selected day. */
       &.active {

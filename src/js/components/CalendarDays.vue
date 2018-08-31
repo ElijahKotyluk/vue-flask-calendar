@@ -16,13 +16,13 @@ export default {
         today,
         /* Days that have occured prior to today */
         past: this.day.isSameOrBefore(this.$moment(), 'day') && !today
-      }
+      };
     }
   },
   methods: {
     captureClick(event) {
-      console.log(event);
+      this.$store.commit('eventFormPos', { x: event.clientX, y: event.clientY});
     }
   }
-}
+};
 </script>

@@ -16347,12 +16347,12 @@ process.umask = function() { return 0; };
         today,
         /* Days that have occured prior to today */
         past: this.day.isSameOrBefore(this.$moment(), 'day') && !today
-      }
+      };
     }
   },
   methods: {
     captureClick(event) {
-      console.log(event);
+      this.$store.commit('eventFormPos', { x: event.clientX, y: event.clientY});
     }
   }
 });
@@ -16427,9 +16427,12 @@ process.umask = function() { return 0; };
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   name: 'EventForm',
-  data () {
-    return {
-      isActive: true
+  computed: {
+    top () {
+      return `${this.$store.state.eventFormPosY}px`
+    },
+    left () {
+      return `${this.$store.state.eventFormPosX}px`
     }
   }
 });
@@ -30075,8 +30078,8 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", {
-    class: { active: _vm.isActive },
-    style: { top: "500px", left: "500px" },
+    class: { active: true },
+    style: { top: _vm.top, left: _vm.left },
     attrs: { id: "event-form" }
   })
 }
@@ -31138,7 +31141,9 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex
 /* harmony default export */ __webpack_exports__["a"] = (new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
     state: {
       currentYear: 2018,
-      currentMonth: 8
+      currentMonth: 8,
+      eventFormPosX: 0,
+      eventFormPosY: 0
     },
     mutations: {
       setCurrentMonth(state, payload) {
@@ -31146,6 +31151,10 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex
       },
       setCurrentYear(state, payload) {
         state.currentYear = payload;
+      },
+      eventFormPos(state, payload) {
+        state.eventFormPosX = payload.x;
+        state.eventFormPosY = payload.y;
       }
     }
 }));

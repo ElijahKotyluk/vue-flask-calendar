@@ -16353,6 +16353,7 @@ process.umask = function() { return 0; };
   methods: {
     captureClick(event) {
       this.$store.commit('eventFormPos', { x: event.clientX, y: event.clientY});
+      this.$store.commit('eventFormActive', true);
     }
   }
 });
@@ -16424,15 +16425,26 @@ process.umask = function() { return 0; };
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   name: 'EventForm',
+  methods: {
+    close () {
+      this.$store.commit('eventFormActive', false);
+    }
+  },
   computed: {
+    isActive () {
+      return this.$store.state.eventFormActive;
+    },
     top () {
-      return `${this.$store.state.eventFormPosY}px`
+      return `${this.$store.state.eventFormPosY}px`;
     },
     left () {
-      return `${this.$store.state.eventFormPosX}px`
+      return `${this.$store.state.eventFormPosX}px`;
     }
   }
 });
@@ -30077,11 +30089,23 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", {
-    class: { active: true },
-    style: { top: _vm.top, left: _vm.left },
-    attrs: { id: "event-form" }
-  })
+  return _c(
+    "div",
+    {
+      class: { active: _vm.isActive },
+      style: { top: _vm.top, left: _vm.left },
+      attrs: { id: "event-form" }
+    },
+    [
+      _c("h4", [_vm._v("Add an event")]),
+      _vm._v(" "),
+      _c(
+        "button",
+        { attrs: { id: "close-button" }, on: { click: _vm.close } },
+        [_vm._v("✕")]
+      )
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -31143,7 +31167,8 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex
       currentYear: 2018,
       currentMonth: 8,
       eventFormPosX: 0,
-      eventFormPosY: 0
+      eventFormPosY: 0,
+      eventFormActive: false
     },
     mutations: {
       setCurrentMonth(state, payload) {
@@ -31155,6 +31180,9 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex
       eventFormPos(state, payload) {
         state.eventFormPosX = payload.x;
         state.eventFormPosY = payload.y;
+      },
+      eventFormActive(state, payload) {
+        state.eventFormActive = payload;
       }
     }
 }));

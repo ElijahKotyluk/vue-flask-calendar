@@ -227,7 +227,8 @@ $active: rgba(222, 6, 6, 1);
       }
 /* Active selected day. */
       &.active {
-        background-color: $today;
+        background-color: rgba(139, 29, 196, 1);
+        color: rgba(218, 193, 231, 1);
       }
     }
 /* Border for last week row. */

@@ -1,5 +1,5 @@
 <template>
-  <div :class="classObject">{{ day.format('D') }}</div>
+  <div :class="classObject" @click="captureClick">{{ day.format('D') }}</div>
 </template>
 
 
@@ -16,8 +16,13 @@ export default {
         today,
         /* Days that have occured prior to today */
         past: this.day.isSameOrBefore(this.$moment(), 'day') && !today
-      };
+      }
+    }
+  },
+  methods: {
+    captureClick(event) {
+      console.log(event);
     }
   }
-};
+}
 </script>

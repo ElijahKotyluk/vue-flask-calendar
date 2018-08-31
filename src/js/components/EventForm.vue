@@ -39,7 +39,7 @@ export default {
   z-index: 10;
   padding: 1rem;
   background-color: white;
-  border: 1px blue solid;
+  border: 1px black solid;
 
   &.active {
     display: flex;
@@ -47,5 +47,19 @@ export default {
 
   flex-direction: column;
   align-content: space-between;
+
+  #close-button {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    border: none;
+    width: 20px;
+    height: 20px;
+    right: 0.6rem;
+    top: 0.6rem;
+    &:focus {
+      outline: none;
+    }
+  }
 }
 </style>

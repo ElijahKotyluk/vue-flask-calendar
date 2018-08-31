@@ -30075,7 +30075,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n#event-form {\n  display: none;\n  box-shadow: 0 2px 4px black;\n  position: fixed;\n  width: 300px;\n  transform: translate(-50%, -100%);\n  z-index: 10;\n  padding: 1rem;\n  background-color: white;\n  border: 1px blue solid;\n  flex-direction: column;\n  align-content: space-between;\n}\n#event-form.active {\n    display: flex;\n}\n", ""]);
+exports.push([module.i, "\n#event-form {\n  display: none;\n  box-shadow: 0 2px 4px black;\n  position: fixed;\n  width: 300px;\n  transform: translate(-50%, -100%);\n  z-index: 10;\n  padding: 1rem;\n  background-color: white;\n  border: 1px black solid;\n  flex-direction: column;\n  align-content: space-between;\n}\n#event-form.active {\n    display: flex;\n}\n#event-form #close-button {\n    margin: 0;\n    padding: 0;\n    position: absolute;\n    border: none;\n    width: 20px;\n    height: 20px;\n    right: 0.6rem;\n    top: 0.6rem;\n}\n#event-form #close-button:focus {\n      outline: none;\n}\n", ""]);
 
 // exports
 

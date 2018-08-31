@@ -13,11 +13,12 @@ vue-moment-calendar/
   |   |   |   └── App.vue
   |   |   |   └── Calendar.vue
   |   |   |   └── CalendarDays.vue
-  |   |   |   └── CurrentMonth.vue        
+  |   |   |   └── CurrentMonth.vue
+  |   |   |   └── EventForm.vue   
   |   |   └── main.js
   |   ├── store/
   |   |    └── index.js
-  |   └── styles
+  |   └── styles/
   |       ├── _reset.scss
   |       ├── _variables.scss
   |       └── main.scss
@@ -45,6 +46,7 @@ Filenames denoted with an asterisk `*` are auto generated and should not be modi
       - `Calendar.vue` : Calendar component.
       - `CalendarDays.vue` : Component for rendering days in the calendar.
       - `CurrentMonth.vue` : Displays current month/selected month in header.
+      - `EventForm.vue` : Component for displaying and saving events in the calendar.
     - `main.js` : Main application entry point for Javascript.
   - `store/` : Vuex data state store.
     - `index.js` : Entrypoint for Vuex store.

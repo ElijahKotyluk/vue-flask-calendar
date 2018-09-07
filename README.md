@@ -67,3 +67,6 @@ Filenames denoted with an asterisk `*` are auto generated and should not be modi
 ## getting started
 
 1. Check out this repo: `git clone https://github.com/ElijahKotyluk/Vue-Moment-Calendar`
+2. Locate and open `vue-moment-calendar` file directory in the command line/terminal.
+3. Run `make` in the command line/terminal. (If you haven't installed yarn globally, you will be instructed to do so when you run `make` command.
+4. Open index.html file with browser to view the applications current state. (In progress)

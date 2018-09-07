@@ -1,5 +1,10 @@
 <template>
-  <div :class="classObject" @click="captureClick">{{ day.format('D') }}</div>
+  <div :class="classObject" @click="captureClick">
+    {{ day.format('D') }}
+    <ul class="event-list">
+      <li v-for="event in events">{{ event.description }}</li>
+    </ul>
+  </div>
 </template>
 
 
@@ -8,8 +13,11 @@ export default {
   name: 'CalendarDays',
   props: ['day'],
   computed: {
+    events () {
+      return this.$store.state.events.filter(event => event.date.isSame(this.$moment(), 'day'))
+    },
     classObject () {
-      let today = this.day.isSame(this.$moment(), 'day');
+      let today = this.date.isSame(this.$moment(), 'day');
 
       return {
         day: true,

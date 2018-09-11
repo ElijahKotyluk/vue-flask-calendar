@@ -16341,27 +16341,32 @@ process.umask = function() { return 0; };
 //
 
 /* harmony default export */ __webpack_exports__["a"] = ({
-  name: 'CalendarDays',
-  props: ['day'],
+  name: "CalendarDays",
+  props: ["day"],
   computed: {
-    events () {
-      return this.$store.state.events.filter(event => event.date.isSame(this.$moment(), 'day'))
+    events() {
+      return this.$store.state.events.filter(event =>
+        event.date.isSame(this.day, "day")
+      );
     },
-    classObject () {
-      let today = this.date.isSame(this.$moment(), 'day');
+    classObject() {
+      let today = this.day.isSame(this.$moment(), "day");
 
       return {
         day: true,
         today,
         /* Days that have occured prior to today */
-        past: this.day.isSameOrBefore(this.$moment(), 'day') && !today
+        past: this.day.isSameOrBefore(this.$moment(), "day") && !today
       };
     }
   },
   methods: {
     captureClick(event) {
-      this.$store.commit('eventFormPos', { x: event.clientX, y: event.clientY});
-      this.$store.commit('eventFormActive', true);
+      this.$store.commit("eventFormPos", {
+        x: event.clientX,
+        y: event.clientY
+      });
+      this.$store.commit("eventFormActive", true);
     }
   }
 });
@@ -16438,20 +16443,20 @@ process.umask = function() { return 0; };
 //
 
 /* harmony default export */ __webpack_exports__["a"] = ({
-  name: 'EventForm',
+  name: "EventForm",
   methods: {
-    close () {
-      this.$store.commit('eventFormActive', false);
+    close() {
+      this.$store.commit("eventFormActive", false);
     }
   },
   computed: {
-    isActive () {
+    active() {
       return this.$store.state.eventFormActive;
     },
-    top () {
+    top() {
       return `${this.$store.state.eventFormPosY}px`;
     },
-    left () {
+    left() {
       return `${this.$store.state.eventFormPosX}px`;
     }
   }
@@ -29868,7 +29873,9 @@ var render = function() {
         "ul",
         { staticClass: "event-list" },
         _vm._l(_vm.events, function(event) {
-          return _c("li", [_vm._v(_vm._s(event.description))])
+          return _c("li", { key: event.id }, [
+            _vm._v(_vm._s(event.description))
+          ])
         })
       )
     ]
@@ -30117,7 +30124,7 @@ var render = function() {
   return _c(
     "div",
     {
-      class: { active: _vm.isActive },
+      class: { active: _vm.active },
       style: { top: _vm.top, left: _vm.left },
       attrs: { id: "event-form" }
     },
@@ -31184,35 +31191,42 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex
 __WEBPACK_IMPORTED_MODULE_2_moment_timezone___default.a.tz.setDefault('UTC');
 
 /* harmony default export */ __webpack_exports__["a"] = (new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
-    state: {
-      currentYear: 2018,
-      currentMonth: 8,
-      eventFormPosX: 0,
-      eventFormPosY: 0,
-      eventFormActive: false,
-      events: [
-        { description: 'Random Event1', date: __WEBPACK_IMPORTED_MODULE_2_moment_timezone___default()() },
-        { description: 'Random Event2', date: __WEBPACK_IMPORTED_MODULE_2_moment_timezone___default()() },
-        { description: 'Random Event3', date: __WEBPACK_IMPORTED_MODULE_2_moment_timezone___default()() }
-      ]
-    },
-    mutations: {
-      setCurrentMonth(state, payload) {
-        state.currentMonth = payload;
+  state: {
+    currentYear: 2018,
+    currentMonth: 8,
+    eventFormPosX: 0,
+    eventFormPosY: 0,
+    eventFormActive: false,
+    events: [{
+        description: 'Random Event1',
+        date: __WEBPACK_IMPORTED_MODULE_2_moment_timezone___default()('2018-09-06', 'YYYY-MM-DD')
       },
-      setCurrentYear(state, payload) {
-        state.currentYear = payload;
+      {
+        description: 'Random Event2',
+        date: __WEBPACK_IMPORTED_MODULE_2_moment_timezone___default()('2018-09-15', 'YYYY-MM-DD')
       },
-      eventFormPos(state, payload) {
-        state.eventFormPosX = payload.x;
-        state.eventFormPosY = payload.y;
-      },
-      eventFormActive(state, payload) {
-        state.eventFormActive = payload;
+      {
+        description: 'Random Event3',
+        date: __WEBPACK_IMPORTED_MODULE_2_moment_timezone___default()('2018-09-14', 'YYYY-MM-DD')
       }
+    ]
+  },
+  mutations: {
+    setCurrentMonth(state, payload) {
+      state.currentMonth = payload;
+    },
+    setCurrentYear(state, payload) {
+      state.currentYear = payload;
+    },
+    eventFormPos(state, payload) {
+      state.eventFormPosX = payload.x;
+      state.eventFormPosY = payload.y;
+    },
+    eventFormActive(state, payload) {
+      state.eventFormActive = payload;
     }
+  }
 }));
-
 
 /***/ }),
 /* 165 */

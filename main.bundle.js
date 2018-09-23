@@ -16441,9 +16441,17 @@ process.umask = function() { return 0; };
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   name: "EventForm",
+  data() {
+    return {
+      descript: ""
+    };
+  },
   methods: {
     close() {
       this.$store.commit("eventFormActive", false);
@@ -30130,6 +30138,29 @@ var render = function() {
     },
     [
       _c("h4", [_vm._v("Add an event")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "text" }, [
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.description,
+              expression: "description"
+            }
+          ],
+          attrs: { type: "text" },
+          domProps: { value: _vm.description },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.description = $event.target.value
+            }
+          }
+        })
+      ]),
       _vm._v(" "),
       _c(
         "button",

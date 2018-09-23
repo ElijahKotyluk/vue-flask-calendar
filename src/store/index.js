@@ -1,9 +1,9 @@
-import Vue from 'vue';
-import Vuex from 'vuex';
+import Vue from "vue";
+import Vuex from "vuex";
 Vue.use(Vuex);
 
-import moment from 'moment-timezone';
-moment.tz.setDefault('UTC');
+import moment from "moment-timezone";
+moment.tz.setDefault("UTC");
 
 export default new Vuex.Store({
   state: {
@@ -12,17 +12,18 @@ export default new Vuex.Store({
     eventFormPosX: 0,
     eventFormPosY: 0,
     eventFormActive: false,
-    events: [{
-        description: 'Random Event1',
-        date: moment('2018-09-06', 'YYYY-MM-DD')
+    events: [
+      {
+        description: "Random Event1",
+        date: moment("2018-09-06", "YYYY-MM-DD")
       },
       {
-        description: 'Random Event2',
-        date: moment('2018-09-15', 'YYYY-MM-DD')
+        description: "Random Event2",
+        date: moment("2018-09-15", "YYYY-MM-DD")
       },
       {
-        description: 'Random Event3',
-        date: moment('2018-09-14', 'YYYY-MM-DD')
+        description: "Random Event3",
+        date: moment("2018-09-14", "YYYY-MM-DD")
       }
     ]
   },
@@ -39,6 +40,12 @@ export default new Vuex.Store({
     },
     eventFormActive(state, payload) {
       state.eventFormActive = payload;
+    },
+    addEvent(state, payload) {
+      state.events.push({
+        description: payload,
+        date: moment()
+      });
     }
   }
 });

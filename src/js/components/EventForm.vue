@@ -3,6 +3,7 @@
     <h4>Add an event</h4>
     <div class="text">
       <input type="text" v-model="description">
+      <button @click="create">Create</button>
     </div>
     <button id="close-button" @click="close">&#10005;</button>
   </div>
@@ -14,12 +15,15 @@ export default {
   name: "EventForm",
   data() {
     return {
-      descript: ""
+      description: ""
     };
   },
   methods: {
     close() {
       this.$store.commit("eventFormActive", false);
+    },
+    create() {
+      this.$store.commit("addEvent", this.description);
     }
   },
   computed: {

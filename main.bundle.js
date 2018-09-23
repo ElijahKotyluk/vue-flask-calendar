@@ -16444,17 +16444,21 @@ process.umask = function() { return 0; };
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   name: "EventForm",
   data() {
     return {
-      descript: ""
+      description: ""
     };
   },
   methods: {
     close() {
       this.$store.commit("eventFormActive", false);
+    },
+    create() {
+      this.$store.commit("addEvent", this.description);
     }
   },
   computed: {
@@ -30159,7 +30163,9 @@ var render = function() {
               _vm.description = $event.target.value
             }
           }
-        })
+        }),
+        _vm._v(" "),
+        _c("button", { on: { click: _vm.create } }, [_vm._v("Create")])
       ]),
       _vm._v(" "),
       _c(
@@ -31219,7 +31225,7 @@ module.exports = {"version":"2018e","zones":["Africa/Abidjan|LMT GMT|g.8 0|01|-2
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */]);
 
 
-__WEBPACK_IMPORTED_MODULE_2_moment_timezone___default.a.tz.setDefault('UTC');
+__WEBPACK_IMPORTED_MODULE_2_moment_timezone___default.a.tz.setDefault("UTC");
 
 /* harmony default export */ __webpack_exports__["a"] = (new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
   state: {
@@ -31228,17 +31234,18 @@ __WEBPACK_IMPORTED_MODULE_2_moment_timezone___default.a.tz.setDefault('UTC');
     eventFormPosX: 0,
     eventFormPosY: 0,
     eventFormActive: false,
-    events: [{
-        description: 'Random Event1',
-        date: __WEBPACK_IMPORTED_MODULE_2_moment_timezone___default()('2018-09-06', 'YYYY-MM-DD')
+    events: [
+      {
+        description: "Random Event1",
+        date: __WEBPACK_IMPORTED_MODULE_2_moment_timezone___default()("2018-09-06", "YYYY-MM-DD")
       },
       {
-        description: 'Random Event2',
-        date: __WEBPACK_IMPORTED_MODULE_2_moment_timezone___default()('2018-09-15', 'YYYY-MM-DD')
+        description: "Random Event2",
+        date: __WEBPACK_IMPORTED_MODULE_2_moment_timezone___default()("2018-09-15", "YYYY-MM-DD")
       },
       {
-        description: 'Random Event3',
-        date: __WEBPACK_IMPORTED_MODULE_2_moment_timezone___default()('2018-09-14', 'YYYY-MM-DD')
+        description: "Random Event3",
+        date: __WEBPACK_IMPORTED_MODULE_2_moment_timezone___default()("2018-09-14", "YYYY-MM-DD")
       }
     ]
   },
@@ -31255,9 +31262,16 @@ __WEBPACK_IMPORTED_MODULE_2_moment_timezone___default.a.tz.setDefault('UTC');
     },
     eventFormActive(state, payload) {
       state.eventFormActive = payload;
+    },
+    addEvent(state, payload) {
+      state.events.push({
+        description: payload,
+        date: __WEBPACK_IMPORTED_MODULE_2_moment_timezone___default()()
+      });
     }
   }
 }));
+
 
 /***/ }),
 /* 165 */

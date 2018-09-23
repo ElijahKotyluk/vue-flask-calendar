@@ -16367,6 +16367,7 @@ process.umask = function() { return 0; };
         y: event.clientY
       });
       this.$store.commit("eventFormActive", true);
+      this.$store.commit("eventFormDate", this.day);
     }
   }
 });
@@ -16459,6 +16460,8 @@ process.umask = function() { return 0; };
     },
     create() {
       this.$store.commit("addEvent", this.description);
+      this.description = "";
+      this.$store.commit("eventFormOpen", false);
     }
   },
   computed: {
@@ -31247,7 +31250,8 @@ __WEBPACK_IMPORTED_MODULE_2_moment_timezone___default.a.tz.setDefault("UTC");
         description: "Random Event3",
         date: __WEBPACK_IMPORTED_MODULE_2_moment_timezone___default()("2018-09-14", "YYYY-MM-DD")
       }
-    ]
+    ],
+    eventFormDate: null
   },
   mutations: {
     setCurrentMonth(state, payload) {
@@ -31266,8 +31270,11 @@ __WEBPACK_IMPORTED_MODULE_2_moment_timezone___default.a.tz.setDefault("UTC");
     addEvent(state, payload) {
       state.events.push({
         description: payload,
-        date: __WEBPACK_IMPORTED_MODULE_2_moment_timezone___default()()
+        date: state.eventFormDate
       });
+    },
+    eventFormDate(state, payload) {
+      state.eventFormDate = payload;
     }
   }
 }));

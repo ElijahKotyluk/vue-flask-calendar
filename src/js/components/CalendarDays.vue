@@ -36,6 +36,7 @@ export default {
         y: event.clientY
       });
       this.$store.commit("eventFormActive", true);
+      this.$store.commit("eventFormDate", this.day);
     }
   }
 };

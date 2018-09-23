@@ -25,7 +25,7 @@ export default {
     create() {
       this.$store.commit("addEvent", this.description);
       this.description = "";
-      this.$store.commit("eventFormOpen", false);
+      this.$store.commit("eventFormActive", false);
     }
   },
   computed: {

@@ -16459,9 +16459,11 @@ process.umask = function() { return 0; };
       this.$store.commit("eventFormActive", false);
     },
     create() {
-      this.$store.commit("addEvent", this.description);
-      this.description = "";
-      this.$store.commit("eventFormActive", false);
+      if (this.description.length > 0) {
+        this.$store.commit("addEvent", this.description);
+        this.description = "";
+        this.$store.commit("eventFormActive", false);
+      }
     }
   },
   computed: {
@@ -30156,7 +30158,7 @@ var render = function() {
               expression: "description"
             }
           ],
-          attrs: { type: "text" },
+          attrs: { type: "text", placeholder: "Lunch at Steve's" },
           domProps: { value: _vm.description },
           on: {
             input: function($event) {

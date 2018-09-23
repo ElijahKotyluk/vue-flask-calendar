@@ -16476,6 +16476,13 @@ process.umask = function() { return 0; };
     left() {
       return `${this.$store.state.eventFormPosX}px`;
     }
+  },
+  directives: {
+    focus: {
+      update(el) {
+        el.focus();
+      }
+    }
   }
 });
 
@@ -30151,6 +30158,7 @@ var render = function() {
       _c("div", { staticClass: "text" }, [
         _c("input", {
           directives: [
+            { name: "focus", rawName: "v-focus" },
             {
               name: "model",
               rawName: "v-model",

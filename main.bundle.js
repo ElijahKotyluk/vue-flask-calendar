@@ -16479,6 +16479,7 @@ process.umask = function() { return 0; };
   },
   directives: {
     focus: {
+      // Update hook: Focus on the input, to prevent user from having to click to type.
       update(el) {
         el.focus();
       }
@@ -30169,6 +30170,15 @@ var render = function() {
           attrs: { type: "text", placeholder: "Lunch at Steve's" },
           domProps: { value: _vm.description },
           on: {
+            keyup: function($event) {
+              if (
+                !("button" in $event) &&
+                _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+              ) {
+                return null
+              }
+              return _vm.create($event)
+            },
             input: function($event) {
               if ($event.target.composing) {
                 return

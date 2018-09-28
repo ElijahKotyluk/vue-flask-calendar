@@ -16400,6 +16400,7 @@ process.umask = function() { return 0; };
       } else {
         this.$store.commit('setCurrentMonth', this.month - 1);
       }
+      this.$store.commit('eventFormActive', false);
     },
     increment () {
       // If month is December increment year and month,
@@ -16410,6 +16411,7 @@ process.umask = function() { return 0; };
       } else {
         this.$store.commit('setCurrentMonth', this.month + 1);
       }
+      this.$store.commit('eventFormActive', false);
     }
   },
   computed: {
@@ -16446,6 +16448,7 @@ process.umask = function() { return 0; };
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   name: "EventForm",
@@ -16467,6 +16470,9 @@ process.umask = function() { return 0; };
     }
   },
   computed: {
+    date() {
+      return this.$store.state.eventFormDate;
+    },
     active() {
       return this.$store.state.eventFormActive;
     },
@@ -30155,6 +30161,8 @@ var render = function() {
     },
     [
       _c("h4", [_vm._v("Add an event")]),
+      _vm._v(" "),
+      _c("p", [_vm._v(_vm._s(_vm.date.format("dddd, MMM Do")))]),
       _vm._v(" "),
       _c("div", { staticClass: "text" }, [
         _c("input", {

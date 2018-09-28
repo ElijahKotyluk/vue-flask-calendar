@@ -20,6 +20,7 @@ export default {
       } else {
         this.$store.commit('setCurrentMonth', this.month - 1);
       }
+      this.$store.commit('eventFormActive', false);
     },
     increment () {
       // If month is December increment year and month,
@@ -30,6 +31,7 @@ export default {
       } else {
         this.$store.commit('setCurrentMonth', this.month + 1);
       }
+      this.$store.commit('eventFormActive', false);
     }
   },
   computed: {

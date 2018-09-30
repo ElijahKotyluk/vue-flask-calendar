@@ -14,6 +14,7 @@ export default {
   props: ["day"],
   computed: {
     events() {
+      // Return filtered list of events to match the day they were created.
       return this.$store.state.events.filter(event =>
         event.date.isSame(this.day, "day")
       );
@@ -24,17 +25,19 @@ export default {
       return {
         day: true,
         today,
-        /* Days that have occured prior to today */
+        // Days that have occured prior to today.
         past: this.day.isSameOrBefore(this.$moment(), "day") && !today
       };
     }
   },
   methods: {
     captureClick(event) {
+      // Save click position to Vuex store to display event form.
       this.$store.commit("eventFormPos", {
         x: event.clientX,
         y: event.clientY
       });
+      // Display event form on clicked day.
       this.$store.commit("eventFormActive", true);
       this.$store.commit("eventFormDate", this.day);
     }

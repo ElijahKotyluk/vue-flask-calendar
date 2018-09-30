@@ -20,6 +20,7 @@ export default {
       } else {
         this.$store.commit('setCurrentMonth', this.month - 1);
       }
+      // Change eventFormActive state to false when decrement is pressed.
       this.$store.commit('eventFormActive', false);
     },
     increment () {
@@ -31,6 +32,7 @@ export default {
       } else {
         this.$store.commit('setCurrentMonth', this.month + 1);
       }
+      // Change eventFormActive state to true when increment is pressed.
       this.$store.commit('eventFormActive', false);
     }
   },

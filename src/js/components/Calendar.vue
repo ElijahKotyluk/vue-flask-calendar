@@ -36,11 +36,11 @@ import EventForm from './EventForm.vue';
   export default {
     name: 'Calendar',
     computed: {
-      /* Current Month */
+      // Current Month
       month() {
         return this.$store.state.currentMonth;
       },
-      /* Current Year */
+      // Current Year
       year() {
         return this.$store.state.currentYear;
       },
@@ -48,7 +48,7 @@ import EventForm from './EventForm.vue';
       // Generate days in current month.
       days() {
 
-        /* Empty array to push days to. */
+        // Empty array to push days to.
         let days = [];
         let currentDay = this.$moment(`${this.year}-${this.month}-1`, 'YYYY-M-D');
 
@@ -200,7 +200,7 @@ $active: rgba(222, 6, 6, 1);
     .day {
       @include calendar-cell();
       overflow: hidden;
-      height: 100px;
+      height: 150px;
       user-select: none;
       cursor: default;
       border-left: $day-border;

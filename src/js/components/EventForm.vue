@@ -20,9 +20,12 @@ export default {
     };
   },
   methods: {
+    // Close button method for event form.
     close() {
       this.$store.commit("eventFormActive", false);
     },
+    // Commit description to Vuex store if length is greater than 0.
+    // Then close event form.
     create() {
       if (this.description.length > 0) {
         this.$store.commit("addEvent", this.description);
@@ -32,15 +35,19 @@ export default {
     }
   },
   computed: {
+    // Date event form was created.
     date() {
       return this.$store.state.eventFormDate;
     },
+    // Open event form if true, close if false.
     active() {
       return this.$store.state.eventFormActive;
     },
+    // Top positioning based on click location.
     top() {
       return `${this.$store.state.eventFormPosY}px`;
     },
+    // Left positionioning based on click location.
     left() {
       return `${this.$store.state.eventFormPosX}px`;
     }

@@ -10,6 +10,7 @@ module.exports = {
     path: __dirname,
     filename: 'main.bundle.js'
   },
+  mode: 'development',
   module: {
     rules: [
       {
@@ -39,5 +40,8 @@ module.exports = {
       filename: 'main.bundle.css',
       allChunks: true
     })
-  ]
+  ],
+  devServer: {
+  port: 3000
+}
 }

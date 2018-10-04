@@ -26,7 +26,7 @@ app.listen(port) // Listen on port defined in config file
 
 console.log('App listening on port ' + port)
 
-const eventRoutes = require('./db/Routes.js')
+const eventRoutes = require('./db/routes.js')
 
 //  Use routes defined in Route.js and prefix with todo
 app.use('/api', eventRoutes)

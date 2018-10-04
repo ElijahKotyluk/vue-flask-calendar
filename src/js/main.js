@@ -14,8 +14,8 @@ Object.defineProperty(Vue.prototype, '$moment', {
   }
 });
 
-import store from './../store';
-
+// Vuex store file.
+import store from './store/store.js';
 
 var app = new Vue({
   el: '#app',

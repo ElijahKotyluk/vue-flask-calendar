@@ -12,7 +12,7 @@ PKG_DIR := $(THIS_DIR)/node_modules
 YARN := $(shell command -v yarn 2> /dev/null)
 WEBPACK := $(PKG_DIR)/.bin/webpack
 
-TARGETS := $(THIS_DIR)/main.bundle.*
+TARGETS := $(THIS_DIR)/dist/main.bundle.*
 
 .PHONY: all build clean distclean watch
 
@@ -20,8 +20,7 @@ all: clean build
 
 build: $(PKG_DIR)
 	@echo "Building bundled assets..."
-	@$(WEBPACK) && node_modules/.bin/nodemon server.js
-	@echo "Running server at localhost:4000..."
+	@$(WEBPACK) & dev_appserver.py app.yaml
 
 clean:
 	@echo "Cleaning bundled assets..."
@@ -34,6 +33,11 @@ distclean:
 watch: $(PKG_DIR)
 	@echo "Building bundled assets and watching for changes..."
 	@$(WEBPACK) --watch
+
+init: $(PKG_DIR)
+	@echo "installing all Python and Javascript dependencies..."
+	-@mkdir -p dist lib && pip install -t lib -r requirements.txt && yarn install
+
 
 $(PKG_DIR):
 	@echo "Installing build dependencies..."

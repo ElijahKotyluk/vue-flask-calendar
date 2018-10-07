@@ -1,7 +1,7 @@
 # Static app views.
 
 from flask import render_template
-from ribosome_forum import app
+from vue_moment_calendar import app
 
 @app.route('/')
 def root():

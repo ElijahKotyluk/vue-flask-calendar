@@ -3,11 +3,11 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   entry: [
-    './src/js/main.js',
-    './src/styles/main.scss'
+    './vue_moment_calendar/assets/js/main.js',
+    './vue_moment_calendar/assets/styles/main.scss'
   ],
   output: {
-    path: __dirname,
+    path: path.resolve(__dirname, 'dist'),
     filename: 'main.bundle.js'
   },
   mode: 'development',
@@ -31,8 +31,7 @@ module.exports = {
   resolve: {
     alias: {
       vue: 'vue/dist/vue.js',
-      '@': path.resolve(__dirname, 'src'),
-      styles: path.resolve(__dirname, 'src', 'styles')
+      '@': path.resolve(__dirname, 'vue_moment_calendar', 'assets')
     }
   },
   plugins: [
@@ -40,8 +39,5 @@ module.exports = {
       filename: 'main.bundle.css',
       allChunks: true
     })
-  ],
-  devServer: {
-  port: 3000
-}
+  ]
 }

@@ -20,8 +20,8 @@ all: clean build
 
 build: $(PKG_DIR)
 	@echo "Building bundled assets..."
-	@$(WEBPACK) && node_modules/.bin/nodemon index.js
-	@echo "Running server at localhost:4000.."
+	@$(WEBPACK) && node_modules/.bin/nodemon server.js
+	@echo "Running server at localhost:4000..."
 
 clean:
 	@echo "Cleaning bundled assets..."

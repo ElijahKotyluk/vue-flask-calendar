@@ -1,10 +1,12 @@
 runtime: python27
 api_version: 1
 threadsafe: true
+
+# Required for open ssl to work.
 libraries:
 - name: ssl
   version: latest
-  
+
 # [START handlers]
 handlers:
 - url: /static

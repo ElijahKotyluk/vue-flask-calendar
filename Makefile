@@ -1,6 +1,6 @@
 # vue-moment-calendar Makefile
 # author: Eli Kotyluk <elijah@elijahkotyluk.com>
-# copyright: Elijah Kotyluk 2017
+# copyright: Elijah Kotyluk 2018
 
 
 SHELL := /bin/bash
@@ -20,7 +20,7 @@ all: clean build
 
 build: $(PKG_DIR)
 	@echo "Building bundled assets..."
-	@$(WEBPACK) & dev_appserver.py app.yaml
+	@$(WEBPACK) && dev_appserver.py app.yaml
 
 clean:
 	@echo "Cleaning bundled assets..."

@@ -23,5 +23,33 @@ export const parseRoute = (route = '', params = {}) => {
 };
 
 export default {
-  // Routes here.
+  // User service routes.
+  user: {
+    '/users': {
+      service: 'list',
+      method: GET,
+      isArray: true
+    },
+    '/user': {
+      service: 'create',
+      method: POST
+    },
+    '/user/:user_id': [
+      {
+        service: 'fetch',
+        method: GET
+      },
+      {
+        service: 'update',
+        method: PATCH
+      },
+      {
+        service: 'delete',
+        method: DELETE
+      }
+    ]
+  },
+  // Event service routes.
+  event: {
+  }
 };

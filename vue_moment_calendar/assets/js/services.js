@@ -49,7 +49,10 @@ export class ServiceProvider {
   register(route, methods) {
     for (let {service, method} of methods) {
       this[service] = (requestOptions) => {
-        const {headers, params, data} = parseRequestOptions(requestOptions);
+        //console.log(requestOptions);
+        const {headers, params} = parseRequestOptions(requestOptions);
+        const data = requestOptions;
+        console.log('my data is ', data, ' and my requestOptions ', requestOptions);
         const url = parseRoute(route, params);
 
         return new Promise((resolve, reject) => {

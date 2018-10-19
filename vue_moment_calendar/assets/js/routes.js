@@ -50,6 +50,6 @@ export default {
     ]
   },
   // Event service routes.
-  event: {
+  events: {
   }
 };

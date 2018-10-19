@@ -27,4 +27,4 @@ class Model(ndb.Model):
         return ndb.Key(urlsafe=key_str)
 
 
-__all__ = ['event']
+__all__ = ['user']

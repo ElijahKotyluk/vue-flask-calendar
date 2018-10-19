@@ -67,14 +67,14 @@ export default {
 <style lang='scss'>
 #event-form {
   display: none;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 1);
+  box-shadow: 0 2px 4px #000000;
   position: fixed;
   width: 300px;
   transform: translate(-50%, -100%);
   z-index: 10;
   padding: 1rem;
   background-color: white;
-  border: 1px black solid;
+  border: 1px #813638 solid;
 
   &.active {
     display: flex;

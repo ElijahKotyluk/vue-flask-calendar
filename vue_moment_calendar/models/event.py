@@ -1,4 +1,5 @@
 # Event data models.
+
 from google.appengine.ext import ndb
 from . import Model
 

@@ -1,7 +1,7 @@
 <template>
   <div>
     <div id="header">
-      <div>
+      <div class="header-title">
         <h1>Vue Moment Calendar</h1>
       </div>
       <div>
@@ -127,7 +127,7 @@ import EventForm from './EventForm.vue';
 
 <style lang="scss">
 /* Variable styles */
-$border-color: rgba(0, 0, 0, 1);
+$border-color: #813638;
 $day-border: 1px solid $border-color;
 $padding-days: rgba(172, 252, 172, 1);
 $today: rgba(218, 193, 231, 1);
@@ -151,6 +151,9 @@ $active: rgba(222, 6, 6, 1);
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-end;
+  color: rgba(110, 120, 110, 1);
+  text-shadow: -1px 0 #813638, 0 1px #813638, 1px 0 #813638, 0 -1px #813638;
+  background-color: #0c3d58;
 
   div:first-child {
     display: flex;
@@ -164,9 +167,10 @@ $active: rgba(222, 6, 6, 1);
       font-size: 1rem;
       padding: 0;
       width: 20px;
-      background-color: rgba(255, 255, 255, 1);
+      color: #813638;
+      background-color: rgba(110, 120, 110, 1);
       user-select: none;
-      border: 1px solid rgba(110, 120, 110, 1);
+      border: 1px solid #813638;
       border-radius: 2px;
       margin-left: 0.25rem;
       &:focus {
@@ -178,10 +182,19 @@ $active: rgba(222, 6, 6, 1);
       }
     }
   }
+
+  div.header-title {
+    margin-left: 1rem;
+  }
+
+  div.month-selector {
+    margin-right: 1.35rem;
+  }
 }
 
 /* List of days above calendar. */
 #days-bar {
+  background-color: #145275;
   @include calendar-row;
   div {
     @include calendar-cell;
@@ -190,7 +203,7 @@ $active: rgba(222, 6, 6, 1);
 
 /* Calendar */
 #calendar {
-  background-color: rgba(150, 150, 150, 1);
+  background-color: rgba(128, 131, 128, 1);
 
 /* Week in Calendar */
   .calendar-week {
@@ -200,7 +213,7 @@ $active: rgba(222, 6, 6, 1);
     .day {
       @include calendar-cell();
       overflow: hidden;
-      height: 150px;
+      height: 144px;
       user-select: none;
       cursor: default;
       border-left: $day-border;

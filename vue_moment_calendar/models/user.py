@@ -1,9 +1,10 @@
 # User data models.
+
 from google.appengine.ext import ndb
 from . import Model
 
 
-class User(Model)
+class User(Model):
 
     ''' A user of the Calendar.
     '''

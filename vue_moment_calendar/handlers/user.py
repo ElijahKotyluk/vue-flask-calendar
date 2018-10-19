@@ -1,6 +1,6 @@
 # User request handlers.
 from flask import jsonify, request
-from vue_flask_calendar import app
+from vue_moment_calendar import app
 from ..models.user import User
 
 
@@ -10,18 +10,18 @@ class UserException(Exception):
 
 @app.route('/users')
 def list_users():
-    results = User.query.fetch(10)
+    results = User.query().fetch(10)
     return jsonify([x.serialize() for x in results])
 
 
-@app.route('/user', methods='POST')
+@app.route('/user', methods=['POST'])
 def create_user():
     if not request.is_json:
-        return (jsonify(UserException('Malformed request.')), 400)
+        return (jsonify(UserException('Malformed request')), 400)
 
     user_props = request.get_json()
 
-    existing_user = User.query(User.email === user.props['username']).get()
+    existing_user = User.query(User.username == user_props['username']).get()
 
     if existing_user is not None:
         return (jsonify(UserException("A user with the username %(username)s already exists." % user_props)), 409)

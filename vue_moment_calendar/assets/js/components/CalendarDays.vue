@@ -1,8 +1,8 @@
 <template>
-  <div :class="classObject" @click="captureClick">
+  <div :class="classObject" @dblclick="captureClick">
     {{ day.format('D') }}
     <ul class="event-list">
-      <li v-for="event in events" :key="event.id">{{ event.description }}</li>
+      <li v-for="event in events">{{ event.description }}</li>
     </ul>
   </div>
 </template>

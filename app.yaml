@@ -14,3 +14,7 @@ handlers:
 - url: /.*
   script: vue_moment_calendar.app
 # [END handlers]
+
+skip_files:
+- ^node_modules(/.*)?
+- .*node_modules

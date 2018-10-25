@@ -4,14 +4,13 @@ from google.appengine.ext import ndb
 from . import Model
 
 
-class Event(Model)
+class Event(Model):
 
-    """ An event on the Calendar.
+    """ An event on the calendar.
     """
 
-    id = ndb.KeyProperty()
     title = ndb.StringProperty()
     description = ndb.StringProperty()
-    deleted = ndb.BooleanProperty(default=False)
-    date = ndb.DateProperty()
+    date =  ndb.DateProperty()
     time = ndb.TimeProperty()
+    deleted = ndb.BooleanProperty(default=False)

@@ -33,7 +33,7 @@ def create_user():
 
 
 @app.route('/user/<user_id>', methods=['GET', 'PATCH', 'DELETE'])
-def modify_user():
+def modify_user(user_id):
 
     user_key = User.inflate_key(user_id)
     user = user_key.get()

@@ -50,14 +50,22 @@ export default new Vuex.Store({
     },
     // Create/Add event.
     addEvent(state, payload) {
-      state.events.push({
-        description: payload,
-        date: state.eventFormDate
-      });
+      state.events.push(payload);
     },
     // Event form date.
     eventFormDate(state, payload) {
       state.eventFormDate = payload;
+    }
+  },
+  actions: {
+    addEvent(context, payload) {
+      let data = {
+        description: payload,
+        date: context.state.eventFormDate.format()
+      };
+      services.event.create({
+        data
+      });
     }
   }
 });

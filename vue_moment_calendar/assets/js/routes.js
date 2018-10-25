@@ -50,6 +50,15 @@ export default {
     ]
   },
   // Event service routes.
-  events: {
+  event: {
+    '/events': {
+      service: 'list',
+      method: GET,
+      isArray: true
+    },
+    '/event': {
+      service: 'create',
+      method: POST
+    }
   }
 };

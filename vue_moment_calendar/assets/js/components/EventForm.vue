@@ -3,7 +3,7 @@
     <h4>Add an event</h4>
     <p>{{ date.format('dddd, MMM Do') }}</p>
     <div class="text">
-      <input type="text" v-focus v-model="description" placeholder="Lunch at Steve's" @keyup.enter="create">
+      <input type="text" v-focus v-model="description" placeholder="Lunch at Steve's" @keyup.enter="create" />
       <button @click="create">Create</button>
     </div>
     <button id="close-button" @click="close">&#10005;</button>
@@ -16,7 +16,8 @@ export default {
   name: "EventForm",
   data() {
     return {
-      description: ""
+      description: "",
+      title: ""
     };
   },
   methods: {
@@ -26,33 +27,41 @@ export default {
     },
     // Commit description to Vuex store if length is greater than 0.
     // Then close event form.
-    create() {
+  /*  create() {
       if (this.description.length > 0) {
         this.$store.commit("addEvent", this.description);
         this.description = "";
         this.$store.commit("eventFormActive", false);
       }
-    }
-  },
-  computed: {
-    // Date event form was created.
-    date() {
-      return this.$store.state.eventFormDate;
+    },*/
+    create() {
+      if (this.description.length > 0) {
+        this.$store.dispatch('addEvent', this.description).then(() => {
+            this.description = '';
+            this.$store.commit('eventFormActive', false);
+          });
+        }
+      }
     },
-    // Open event form if true, close if false.
-    active() {
-      return this.$store.state.eventFormActive;
+    computed: {
+      // Date event form was created.
+      date() {
+        return this.$store.state.eventFormDate;
+      },
+      // Open event form if true, close if false.
+      active() {
+        return this.$store.state.eventFormActive;
+      },
+      // Top positioning based on click location.
+      top() {
+        return `${this.$store.state.eventFormPosY}px`;
+      },
+      // Left positionioning based on click location.
+      left() {
+        return `${this.$store.state.eventFormPosX}px`;
+      }
     },
-    // Top positioning based on click location.
-    top() {
-      return `${this.$store.state.eventFormPosY}px`;
-    },
-    // Left positionioning based on click location.
-    left() {
-      return `${this.$store.state.eventFormPosX}px`;
-    }
-  },
-  directives: {
+    directives: {
     focus: {
       // Update hook: Focus on the input, to prevent user from having to click to type.
       update(el) {

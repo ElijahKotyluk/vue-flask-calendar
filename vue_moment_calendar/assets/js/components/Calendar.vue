@@ -151,9 +151,11 @@ $active: rgba(222, 6, 6, 1);
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-end;
-  color: rgba(110, 120, 110, 1);
-  text-shadow: -1px 0 #813638, 0 1px #813638, 1px 0 #813638, 0 -1px #813638;
-  background-color: #0c3d58;
+  color: #aeb8ae;
+  letter-spacing: .1em;
+  text-shadow: -1px -1px 1px #111,
+  2px 2px 1px #363636;
+  background-color: #2c5d78;
 
   div:first-child {
     display: flex;
@@ -164,27 +166,35 @@ $active: rgba(222, 6, 6, 1);
 
   div:last-child {
     button {
-      font-size: 1rem;
-      padding: 0;
+      height: 20px;
       width: 20px;
-      color: #813638;
-      background-color: rgba(110, 120, 110, 1);
+      padding: 0px;
+      font-size: 1rem;
+      color: #aeb8ae;
+      background-color: #2c5d78;
       user-select: none;
-      border: 1px solid #813638;
+      border: 1px solid #aeb8ae;
+      box-shadow: -1px -1px 1px #111,
+      2px 2px 1px #363636;
       border-radius: 2px;
-      margin-left: 0.25rem;
+      text-align: center;
+      line-height: 5px;
       &:focus {
         outline: none;
       }
       &:hover {
         color: rgba(27, 166, 235, 1);
-        box-shadow: 0 2px 2px rgba(110, 120, 110, 1);
+        box-shadow: 0 2px 2px #9ea89e;
       }
     }
   }
 
   div.header-title {
     margin-left: 1rem;
+  }
+
+  div.header-month {
+    margin: 0px 10px;
   }
 
   div.month-selector {
@@ -194,7 +204,7 @@ $active: rgba(222, 6, 6, 1);
 
 /* List of days above calendar. */
 #days-bar {
-  background-color: #145275;
+  background-color: #4482a5;
   @include calendar-row;
   div {
     @include calendar-cell;
@@ -203,7 +213,7 @@ $active: rgba(222, 6, 6, 1);
 
 /* Calendar */
 #calendar {
-  background-color: rgba(128, 131, 128, 1);
+  background-color: #9ea89e;
 
 /* Week in Calendar */
   .calendar-week {

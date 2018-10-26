@@ -1,8 +1,8 @@
 <template>
   <div class="month-selector">
+    <button @click="decrement">&#8606;</button>
     <div class="header-month">{{ formattedDate }}</div>
-    <button @click="decrement">-</button>
-    <button @click="increment">+</button>
+    <button @click="increment">&#8608;</button>
 </div>
 </template>
 
@@ -55,6 +55,6 @@ export default {
 
 <style lang='scss'>
 .header-month {
-  font-size: 1.25rem;
+  font-size: 1.35rem;
 }
 </style>

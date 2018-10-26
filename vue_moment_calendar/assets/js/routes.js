@@ -59,6 +59,46 @@ export default {
     '/event': {
       service: 'create',
       method: POST
-    }
+    },
+    '/event/:event_id': [
+      {
+        service: 'fetch',
+        method: GET
+      },
+      {
+        service: 'update',
+        method: PATCH
+      },
+      {
+        service: 'delete',
+        method: DELETE
+      }
+    ]
+  },
+  // Day service routes.
+  day: {
+    '/days': {
+      service: 'list',
+      method: GET,
+      isArray: true
+    },
+    '/day': {
+      service: 'create',
+      method: POST
+    },
+    '/day/:day_id': [
+      {
+        service: 'fetch',
+        method: GET
+      },
+      {
+        service: 'update',
+        method: PATCH
+      },
+      {
+        service: 'delete',
+        method: DELETE
+      }
+    ]
   }
 };

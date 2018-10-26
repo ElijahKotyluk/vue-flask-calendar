@@ -33,9 +33,15 @@ vue-moment-calendar/
   |   |   |   ├── _variables.scss
   |   |   |   └── main.scss
   |   |   ├── handlers/
-  |   |   |   └── __init__.py
+  |   |   |   ├── __init__.py
+  |   |   |   ├── day.py
+  |   |   |   ├── event.py
+  |   |   |   └── user.py
   |   |   └── models/
-  |   |       └── __init__.py
+  |   |       ├── __init__.py
+  |   |       ├── day.py
+  |   |       ├── event.py
+  |   |       └── user.py
   |   ├── __init__.py
   |   └── views.py
   ├── .gitignore
@@ -84,8 +90,14 @@ Filenames denoted with an asterisk `*` are auto generated and should not be modi
       - `main.scss` : Main application entry point for SCSS.
   - `handlers/` : Handlers folder.
     - `__init__.py` : Handlers initialization file.
+    - `day.py` : Handlers for day model.
+    - `event.py` : Handlers for event model.
+    - `user.py` : Handlers for user model.
   - `models/` : Models folder.
     - `__init_.py` : Models initialization file.
+    - `day.py` : Day data model/methods.
+    - `event.py` : Event data model/methods.
+    - `user.py` : User data model/methods.
   - `__init__.py` : Main application initialization file.
   - `views.py` : Static app views file.
 - `.gitignore` : Tells git what files not to check in.

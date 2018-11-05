@@ -25,3 +25,25 @@ def create_event():
     new_event.put()
 
     return jsonify(new_event.serialize())
+
+
+@app.route('/event/<event_id>', methods=['GET', 'PATCH', 'DELETE'])
+def modify_event(event_id):
+
+    event_key.inflate_key(event_id)
+    event = event_key.get()
+
+    if event is None:
+        return(jsonify(EventException('Event does not exist.')), 404)
+
+    elif request.method == 'PATCH':
+        # Update requested event properties, then store the event.
+        for prop, value in request.get_json().iteritems():
+            setattr(event, prop, value)
+
+        event.put()
+
+    elif request.method == 'DELETE':
+        event_key.delete()
+
+    return jsonify(event.serialize())

@@ -14,3 +14,4 @@ class Event(Model):
     date =  ndb.DateProperty()
     time = ndb.TimeProperty()
     deleted = ndb.BooleanProperty(default=False)
+    completed = ndb.BooleanProperty(default=False)

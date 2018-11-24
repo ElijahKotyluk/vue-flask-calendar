@@ -155,7 +155,10 @@ $active: rgba(222, 6, 6, 1);
   letter-spacing: .1em;
   text-shadow: -1px -1px 1px #111,
   2px 2px 1px #363636;
-  background-color: #2c5d78;
+  background-color: #782c2c;
+  -webkit-box-shadow: 0px 0px 9px 3px rgba(41,41,41,.25);
+  -moz-box-shadow: 0px 0px 9px 3px rgba(41,41,41,.25);
+  box-shadow: 0px 0px 9px 3px rgba(41,41,41,.25);
 
   div:first-child {
     display: flex;

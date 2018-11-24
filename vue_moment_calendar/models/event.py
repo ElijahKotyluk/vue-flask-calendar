@@ -11,7 +11,7 @@ class Event(Model):
 
     title = ndb.StringProperty()
     description = ndb.StringProperty()
-    date =  ndb.DateProperty()
+    date =  ndb.StringProperty()
     time = ndb.TimeProperty()
     deleted = ndb.BooleanProperty(default=False)
     completed = ndb.BooleanProperty(default=False)

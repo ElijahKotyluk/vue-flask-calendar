@@ -9,13 +9,7 @@
       </div>
     </div>
     <div id="days-bar">
-      <div>Mon</div>
-      <div>Tue</div>
-      <div>Wed</div>
-      <div>Thu</div>
-      <div>Fri</div>
-      <div>Sat</div>
-      <div>Sun</div>
+      <div v-for="day in headerDays" :key="day.id">{{ day.title }}</div>
     </div>
     <div id="calendar">
       <div v-for="week in weeks" class="calendar-week">
@@ -35,6 +29,19 @@ import EventForm from './EventForm.vue';
 
   export default {
     name: 'Calendar',
+    data () {
+      return {
+        headerDays: [
+          { title: 'Mon' },
+          { title: 'Tue' },
+          { title: 'Wed' },
+          { title: 'Thu' },
+          { title: 'Fri' },
+          { title: 'Sat' },
+          { title: 'Sun' }
+        ]
+      }
+    },
     computed: {
       // Current Month
       month() {

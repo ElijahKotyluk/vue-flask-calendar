@@ -12,6 +12,13 @@
 export default {
   name: "CalendarDays",
   props: ["day"],
+  data () {
+    return {
+    }
+  },
+  mounted() {
+  //  console.log(this.day)
+  },
   computed: {
     events() {
       // Return filtered list of events to match the day they were created.

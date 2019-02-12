@@ -26,8 +26,6 @@ const parseRequestOptions = function (options = {}) {
 
 
 /**
- * A ServiceProvider...provides a service. Lmao. Services are groups of remote
- * calls organized around a specific feature - for example, the "user" service.
  * The ServiceProvider takes route config from routes.js and provides methods
  * based on those values that make calls to the supplied URLs.
  */

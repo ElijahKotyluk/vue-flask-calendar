@@ -30,5 +30,3 @@ var app = new Vue({
   render: h => h(App),
   store
 });
-
-window.services = services;

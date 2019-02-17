@@ -16,6 +16,8 @@ Object.defineProperty(Vue.prototype, '$moment', {
   }
 });
 
+window.services = services
+
 // Vuex store file.
 import store from './store/store.js';
 

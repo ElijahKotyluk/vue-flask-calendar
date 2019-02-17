@@ -59,6 +59,9 @@ export default new Vuex.Store({
     // Event form date.
     eventFormDate(state, payload) {
       state.eventFormDate = payload;
+    },
+    MUTATE_EVENTS: (state, events) => {
+      state.events = events;
     }
   },
   actions: {
@@ -69,15 +72,15 @@ export default new Vuex.Store({
       };
       services.myEvent.create({
         data
-      })
-        context.commit('addEvent', data);
-    },
-    listEvents(context, payload) {
-      services.myEvent.list().then(response => {
-        resolve(response)
+      }).then(response => {
+        console.log(response);
       }, error => {
-        reject(error)
-      })
+        console.log(response.error);
+      });
+      context.commit('addEvent', data);
+    },
+    loadEvents: (context, events) => {
+      context.commit("MUTATE_EVENTS", events);
     }
   }
 });

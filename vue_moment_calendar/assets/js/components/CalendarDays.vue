@@ -12,19 +12,13 @@
 export default {
   name: "CalendarDays",
   props: ["day"],
-  data () {
-    return {
-    }
-  },
-  mounted() {
-  //  console.log(this.day)
-  },
   computed: {
     events() {
       // Return filtered list of events to match the day they were created.
       return this.$store.state.events.filter(event =>
         event.date.isSame(this.day, "day")
       );
+      console.log(this.day)
     },
     classObject() {
       let today = this.day.isSame(this.$moment(), "day");

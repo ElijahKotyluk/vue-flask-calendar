@@ -10,7 +10,7 @@ class EventException(Exception):
 
 @app.route('/events')
 def list_events():
-    results = Event.query().fetch(10)
+    results = Event.query().fetch(50)
     return jsonify([x.serialize() for x in results])
 
 

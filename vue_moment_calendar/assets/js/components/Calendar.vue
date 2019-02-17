@@ -39,20 +39,16 @@ export default {
         { title: 'Fri' },
         { title: 'Sat' },
         { title: 'Sun' }
-      ],
-      events: []
+      ]
     }
   },
   computed: {
-    // Current Month
     month() {
       return this.$store.state.currentMonth;
     },
-    // Current Year
     year() {
       return this.$store.state.currentYear;
     },
-    // Generate days in current month.
     days() {
       // Empty array to push days to.
       let days = [];
@@ -82,7 +78,6 @@ export default {
       // Reset currentDay value to last day of the current month.
       currentDay = this.$moment(days[days.length - 1]);
 
-      // If statement to correctly render padding days for the month of May.
       if (currentDay.day() !== SUNDAY) {
         // Push currentDay to days array while currentDay is not Sunday.
         do {
@@ -114,17 +109,22 @@ export default {
     }
   },
   methods: {
-    getEvents() {
-      let listEvents = services.myEvent.list()
-      listEvents.then((response) => {
-        this.events = response
-        console.log(this.events)
-        console.log(response[0].date)
-      })
+    loadEvents() {
+      services.myEvent.list().then(response => {
+        console.log(response.date);
+        let events = [];
+        for (let i = 0; i < response.length; i++) {
+          console.log(response[i]);
+          events.push(response[i]);
+        }
+        this.$store.dispatch("loadEvents", events);
+      }, error => {
+        console.log(response.error);
+      });
     }
   },
   mounted() {
-    this.getEvents()
+    this.loadEvents();
   },
   components: {
     CalendarDays,

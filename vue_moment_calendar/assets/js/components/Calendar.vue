@@ -117,9 +117,8 @@ export default {
     getEvents() {
       let listEvents = services.myEvent.list()
       listEvents.then((response) => {
-        this.events = response
-        console.log(this.events)
         console.log(response[0].date)
+        console.log(response)
       })
     }
   },

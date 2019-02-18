@@ -25,6 +25,15 @@ export default {
     close() {
       this.$store.commit("eventFormActive", false);
     },
+    // Commit description to Vuex store if length is greater than 0.
+    // Then close event form.
+  /*  create() {
+      if (this.description.length > 0) {
+        this.$store.commit("addEvent", this.description);
+        this.description = "";
+        this.$store.commit("eventFormActive", false);
+      }
+    },*/
     create() {
       if (this.description.length > 0) {
         this.$store.dispatch('addEvent', this.description).then(() => {
@@ -32,6 +41,7 @@ export default {
             this.$store.commit('eventFormActive', false);
           });
           console.log('Creating event...')
+          debugger;
         }
       }
     },

@@ -2,7 +2,7 @@
 from flask import jsonify, request
 from vue_moment_calendar import app
 from ..models.event import Event
-
+from datetime import datetime
 
 class EventException(Exception):
     pass
@@ -20,6 +20,12 @@ def create_event():
         return (jsonify(EventException('Malformed request.')), 400)
 
     event_props = request.get_json()
+    print event_props
+
+    date = event_props['date']
+
+    event_props['date'] = datetime.strptime(date, "%Y-%m-%dT%H:%M:%S.%fZ")
+    print event_props['date']
 
     new_event = Event(**event_props)
     new_event.put()

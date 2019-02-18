@@ -18,6 +18,7 @@ export default new Vuex.Store({
     eventFormPosY: 0,
     eventFormActive: false,
     // Array of events.
+    event: {},
     events: [
       {
         description: "Random Event1",
@@ -56,6 +57,9 @@ export default new Vuex.Store({
     addEvent(state, payload) {
       state.events.push(payload);
     },
+    deleteEvent(state, payload) {
+
+    },
     // Event form date.
     eventFormDate(state, payload) {
       state.eventFormDate = payload;
@@ -74,9 +78,9 @@ export default new Vuex.Store({
     },
     listEvents(context, payload) {
       services.myEvent.list().then(response => {
-        resolve(response)
+        console.log(response)
       }, error => {
-        reject(error)
+        console.log(error)
       })
     }
   }

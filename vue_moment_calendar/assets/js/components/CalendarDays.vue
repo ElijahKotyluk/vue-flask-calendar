@@ -2,11 +2,10 @@
   <div :class="classObject" @dblclick="captureClick">
     {{ day.format('D') }}
     <ul class="event-list">
-      <li v-for="event in events">{{ event.description }}</li>
+      <li v-for="event in events" :key="event.id">{{ event.description }}</li>
     </ul>
   </div>
 </template>
-
 
 <script>
 export default {
@@ -17,7 +16,8 @@ export default {
     }
   },
   mounted() {
-  //  console.log(this.day)
+  console.log(this.day)
+  console.log(moment.utc('2019-02-19T00:00:00.000Z'))
   },
   computed: {
     events() {

@@ -1,6 +1,7 @@
 # Event data models.
 
 from google.appengine.ext import ndb
+from datetime import datetime
 from . import Model
 
 
@@ -11,7 +12,7 @@ class Event(Model):
 
     title = ndb.StringProperty()
     description = ndb.StringProperty()
-    date =  ndb.StringProperty()
+    date =  ndb.DateTimeProperty()
     time = ndb.TimeProperty()
     deleted = ndb.BooleanProperty(default=False)
     completed = ndb.BooleanProperty(default=False)

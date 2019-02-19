@@ -76,7 +76,7 @@ export default {
   z-index: 10;
   padding: 1rem;
   background-color: white;
-  border: 1px #813638 solid;
+  border: .2px #813638 solid;
 
   &.active {
     display: flex;

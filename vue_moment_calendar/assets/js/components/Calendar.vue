@@ -221,7 +221,7 @@ $active: rgba(222, 6, 6, 1);
 
 /* List of days above calendar. */
 #days-bar {
-  background-color: #4c4a4a;
+  background-color: #805757;
   @include calendar-row;
   div {
     @include calendar-cell;
@@ -246,6 +246,14 @@ $active: rgba(222, 6, 6, 1);
       border-left: $day-border;
       border-top: $day-border;
 
+        ul.event-list {
+          width: 80%;
+          height: 80%;
+          padding-left: 0;
+          margin: 0;
+          margin-top: 5px;
+        }
+
 /* Last day in each week */
       &:last-child {
         border-right: $day-border;
@@ -263,12 +271,11 @@ $active: rgba(222, 6, 6, 1);
 
 /* Current day */
       &.today {
-        background-color: rgba(245, 97, 97, 1);
+        background-color: rgba(245, 97, 97, .2);
       }
 /* Active selected day. */
       &.active {
-        background-color: rgba(139, 29, 196, 1);
-        color: rgba(218, 193, 231, 1);
+        background-color: rgba(250, 250, 250, .4);
       }
     }
 /* Border for last week row. */

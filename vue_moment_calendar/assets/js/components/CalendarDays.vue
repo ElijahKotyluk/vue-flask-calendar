@@ -15,10 +15,6 @@ export default {
     return {
     }
   },
-  mounted() {
-  console.log(this.day)
-  console.log(moment.utc('2019-02-19T00:00:00.000Z'))
-  },
   computed: {
     events() {
       // Return filtered list of events to match the day they were created.

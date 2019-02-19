@@ -62,7 +62,7 @@ export default {
         days.push(currentDay);
         // Instance of moment that increments currentDay until all days in the current month are pushed.
         currentDay = this.$moment(currentDay).add(1, 'days');
-      } while (currentDay.month() + 1 === this.month);
+      } while ((currentDay.month() + 1) === this.month);
       // Add padding days from the end of the previous month.
       // Reset currentDay value to first day of the month.
       currentDay = this.$moment(days[0]);
@@ -114,16 +114,23 @@ export default {
     }
   },
   methods: {
-    getEvents() {
-      let listEvents = services.myEvent.list()
-      listEvents.then((response) => {
-        console.log(response[0].date)
-        console.log(response)
-      })
+    loadEvents() {
+      services.myEvent.list().then(response => {
+        // Hold response array.
+        let events = [];
+
+        for (let i = 0; i < response.length; i++) {
+          events.push(response[i]);
+        };
+
+        this.$store.dispatch('loadEvents', events);
+      }, error => {
+        console.log(response.error);
+      });
     }
   },
   mounted() {
-    this.getEvents()
+    this.loadEvents();
   },
   components: {
     CalendarDays,
@@ -136,7 +143,7 @@ export default {
 
 <style lang="scss">
 /* Variable styles */
-$border-color: #813638;
+$border-color: rgba(129, 54, 56, .5);
 $day-border: 1px solid $border-color;
 $padding-days: rgba(172, 252, 172, 1);
 $today: rgba(218, 193, 231, 1);
@@ -164,7 +171,7 @@ $active: rgba(222, 6, 6, 1);
   letter-spacing: .1em;
   text-shadow: -1px -1px 1px #111,
   2px 2px 1px #363636;
-  background-color: #782c2c;
+  background-color: rgba(77, 18, 18, 1);
   -webkit-box-shadow: 0px 0px 9px 3px rgba(41,41,41,.25);
   -moz-box-shadow: 0px 0px 9px 3px rgba(41,41,41,.25);
   box-shadow: 0px 0px 9px 3px rgba(41,41,41,.25);
@@ -183,9 +190,8 @@ $active: rgba(222, 6, 6, 1);
       padding: 0px;
       font-size: 1rem;
       color: #aeb8ae;
-      background-color: #2c5d78;
+      background-color: #4c4a4a;
       user-select: none;
-      border: 1px solid #aeb8ae;
       box-shadow: -1px -1px 1px #111,
       2px 2px 1px #363636;
       border-radius: 2px;
@@ -195,8 +201,7 @@ $active: rgba(222, 6, 6, 1);
         outline: none;
       }
       &:hover {
-        color: rgba(27, 166, 235, 1);
-        box-shadow: 0 2px 2px #9ea89e;
+        box-shadow: 0 1px 2px #9ea89e;
       }
     }
   }
@@ -216,7 +221,7 @@ $active: rgba(222, 6, 6, 1);
 
 /* List of days above calendar. */
 #days-bar {
-  background-color: #4482a5;
+  background-color: #4c4a4a;
   @include calendar-row;
   div {
     @include calendar-cell;

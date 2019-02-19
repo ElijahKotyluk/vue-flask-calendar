@@ -12,13 +12,12 @@ import services from '../services';
 // Vuex store.
 export default new Vuex.Store({
   state: {
-    currentYear: 2019,
-    currentMonth: 2,
+    currentYear: moment().year(),
+    currentMonth: moment().month() + 1,
     eventFormPosX: 0,
     eventFormPosY: 0,
     eventFormActive: false,
     // Array of events.
-    event: {},
     events: [
       {
         description: "Random Event1",
@@ -57,8 +56,14 @@ export default new Vuex.Store({
     addEvent(state, payload) {
       state.events.push(payload);
     },
-    deleteEvent(state, payload) {
-
+    loadEvents(state, events) {
+      for (let i = 0; i < events.length; i++){
+        console.log(events[i].date);
+        let newDate = moment(events[i].date);
+        events[i].date = newDate;
+        console.log(events[i].date)
+        state.events.push(events[i]);
+      };
     },
     // Event form date.
     eventFormDate(state, payload) {
@@ -76,12 +81,8 @@ export default new Vuex.Store({
       })
         context.commit('addEvent', data);
     },
-    listEvents(context, payload) {
-      services.myEvent.list().then(response => {
-        console.log(response)
-      }, error => {
-        console.log(error)
-      })
+    loadEvents(context, events) {
+      context.commit('loadEvents', events)
     }
   }
 });

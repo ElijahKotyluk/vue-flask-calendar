@@ -20,12 +20,13 @@ def create_event():
         return (jsonify(EventException('Malformed request.')), 400)
 
     event_props = request.get_json()
-    print event_props
-
     date = event_props['date']
 
+    """ Convert date attribute from ISO string to DateTime Object
+        before it gets stored in the database.
+    """
+
     event_props['date'] = datetime.strptime(date, "%Y-%m-%dT%H:%M:%S.%fZ")
-    print event_props['date']
 
     new_event = Event(**event_props)
     new_event.put()

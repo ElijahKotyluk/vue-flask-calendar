@@ -17,7 +17,6 @@ export default new Vuex.Store({
     eventFormPosX: 0,
     eventFormPosY: 0,
     eventFormActive: false,
-    // Array of events.
     events: [
       {
         description: "Random Event1",
@@ -52,16 +51,15 @@ export default new Vuex.Store({
     eventFormActive(state, payload) {
       state.eventFormActive = payload;
     },
-    // Create/Add event.
+    // Add event.
     addEvent(state, payload) {
       state.events.push(payload);
     },
     loadEvents(state, events) {
       for (let i = 0; i < events.length; i++){
-        console.log(events[i].date);
         let newDate = moment(events[i].date);
+        
         events[i].date = newDate;
-        console.log(events[i].date)
         state.events.push(events[i]);
       };
     },

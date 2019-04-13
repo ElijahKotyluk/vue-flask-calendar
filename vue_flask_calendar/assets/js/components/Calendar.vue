@@ -2,7 +2,7 @@
   <div>
     <div id="header">
       <div class="header-title">
-        <h1>Vue Moment Calendar</h1>
+        <h1>Vue Flask Calendar</h1>
       </div>
       <div>
         <current-month></current-month>

@@ -3,8 +3,8 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   entry: [
-    './vue_moment_calendar/assets/js/main.js',
-    './vue_moment_calendar/assets/styles/main.scss'
+    './vue_flask_calendar/assets/js/main.js',
+    './vue_flask_calendar/assets/styles/main.scss'
   ],
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -31,7 +31,7 @@ module.exports = {
   resolve: {
     alias: {
       vue: 'vue/dist/vue.js',
-      '@': path.resolve(__dirname, 'vue_moment_calendar', 'assets')
+      '@': path.resolve(__dirname, 'vue_flask_calendar', 'assets')
     }
   },
   plugins: [

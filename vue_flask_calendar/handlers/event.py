@@ -1,6 +1,6 @@
 # Event request handlers.
 from flask import jsonify, request
-from vue_moment_calendar import app
+from vue_flask_calendar import app
 from ..models.event import Event
 from datetime import datetime
 

@@ -1,8 +1,8 @@
 from setuptools import setup
 
 setup(
-    name="vue_moment_calendar",
-    packages=["vue_moment_calendar"],
+    name="vue_flask_calendar",
+    packages=["vue_flask_calendar"],
     include_package_data=True,
     install_requires=["flask"]
 )

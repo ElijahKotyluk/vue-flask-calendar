@@ -12,7 +12,7 @@ handlers:
 - url: /static
   static_dir: dist
 - url: /.*
-  script: vue_moment_calendar.app
+  script: vue_flask_calendar.app
 # [END handlers]
 
 skip_files:

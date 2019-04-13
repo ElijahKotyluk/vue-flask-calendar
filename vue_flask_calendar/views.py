@@ -1,7 +1,7 @@
 # Static app views.
 
 from flask import render_template
-from vue_moment_calendar import app
+from vue_flask_calendar import app
 
 @app.route('/')
 def root():

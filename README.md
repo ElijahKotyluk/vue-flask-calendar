@@ -10,7 +10,7 @@ vue-moment-calendar/
   ├── *env/
   ├── *node_modules/
   ├── *lib/
-  ├── vue_moment_calendar/
+  ├── vue_flask_calendar/
   |   ├── assets/
   |   |   ├── js/
   |   |   |   ├── components/
@@ -34,14 +34,10 @@ vue-moment-calendar/
   |   |   |   └── main.scss
   |   |   ├── handlers/
   |   |   |   ├── __init__.py
-  |   |   |   ├── day.py
-  |   |   |   ├── event.py
-  |   |   |   └── user.py
+  |   |   |   └── event.py
   |   |   └── models/
   |   |       ├── __init__.py
-  |   |       ├── day.py
-  |   |       ├── event.py
-  |   |       └── user.py
+  |   |       └── event.py
   |   ├── __init__.py
   |   └── views.py
   ├── .gitignore

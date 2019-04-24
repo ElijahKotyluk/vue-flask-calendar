@@ -109,8 +109,8 @@ Filenames denoted with an asterisk `*` are auto generated and should not be modi
 
 ## getting started
 
-1. Check out this repo: `git clone https://github.com/ElijahKotyluk/Vue-Moment-Calendar`
-2. Locate and open `vue-moment-calendar` file directory in the command line/terminal.
+1. Check out this repo: `git clone https://github.com/ElijahKotyluk/vue-flask-calendar`
+2. Locate and open `vue-flask-calendar` file directory in the command line/terminal.
 3. Run `virtualenv env` to create a new virtual machine named `env`
 4. Run `make init` to install all Javascript and Python dependencies.
 5. Run `make` to bundle the front-end assets and run the development server, then visit [http://localhost:8080](http://localhost:8080) (requires [Google Cloud SDK](https://cloud.google.com/sdk/docs/) to be installed in your path).

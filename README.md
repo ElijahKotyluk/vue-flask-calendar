@@ -63,7 +63,7 @@ Filenames denoted with an asterisk `*` are auto generated and should not be modi
 - `env/` : Python environment folder.
 - `lib/` : Python libraries folder.
 - `node_modules/` : Downloaded dependencies.
-- `vue_moment_calendar/` : Main application folder.
+- `vue_flask_calendar/` : Main application folder.
   - `assets/` : Assets folder.
     - `js/` : Javascript folder.
       - `components/` : Vue components.

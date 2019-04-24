@@ -1,6 +1,9 @@
-# vue-moment-calendar
+# vue-flask-calendar
 
-This will start out as a basic calendar application that will display current month, as well as past and future. It will allow user input for scheduling meetings or appointments with reminders that can be created prior to that obligation. This project is mainly for my want to further my knowledge of Vue.js and Moment.js and hone those skills.
+Basic calendar application using Vue.js, Vuex, Moment.js, Flask, and NDB. 
+If you want to checkout a deployed version without any Python integrated, here you go...
+[vue-calendar](https://github.com/ElijahKotyluk/vue-calendar)
+
 
 ## file structure
 
